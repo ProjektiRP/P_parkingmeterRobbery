@@ -2,7 +2,7 @@ fx_version 'cerulean'
 game 'gta5'
 lua54 'yes'
 author 'Projekti'
-description 'PROJEKTI - ATM ROBBERY'
+description 'PROJEKTI - PARKING METER ROBBERY'
 
 client_scripts {
     'src/c_*.lua',
