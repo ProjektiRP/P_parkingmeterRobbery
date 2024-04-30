@@ -21,16 +21,17 @@ RegisterServerEvent("projekti:parkmeter:robbery")
 AddEventHandler("projekti:parkmeter:robbery", function()
     local xPlayer = ESX.GetPlayerFromId(source)
 
-    local tyypit = {
+    local items = {
         "black_money",
     }
 
-    local randomIndex = math.random(#tyypit)
-    local randomItem = tyypit[randomIndex]
+    local randomIndex = math.random(#items)
+    local randomItem = items[randomIndex]
 
-    local rahat = math.random(150, 300)
+    local black_money = math.random(150, 300)
 
-    xPlayer.addInventoryItem(randomItem, rahat)
+    --xPlayer.addInventoryItem(randomItem, black_money)
+    exports['ox_inventory']:AddItem(xPlayer.source, randomItem, black_money) -- ox_inventory log export
 end)
 
 RegisterServerEvent("projekti:log")
