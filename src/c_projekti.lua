@@ -3,7 +3,7 @@ ESX = exports["es_extended"]:getSharedObject()
 local playerIdx = GetPlayerFromServerId(source)
 local ped = GetPlayerPed(playerIdx)
 
-local poliisit = false
+local police = false
 local model = {'prop_parknmeter_02', 'prop_parknmeter_01'}
 
 exports.ox_target:addModel(model, {
@@ -14,7 +14,19 @@ exports.ox_target:addModel(model, {
             if GetSelectedPedWeapon(ped) == GetHashKey("weapon_crowbar") then
                 rob_parkmeter()
             else
-                ESX.ShowNotification(Projekti.locales["need"])
+                lib.notify({
+                    title = Projekti.locales["need"],
+                    position = 'center-right',
+                    style = {
+                        backgroundColor = Projekti.notify["background_color"],
+                        color = Projekti.notify["text_colour"],
+                        ['.description'] = {
+                            color = Projekti.notify["text_colour"]
+                        }
+                    },
+                    icon = Projekti.notify["icon"],
+                    iconColor = '#C53030'
+                })
             end
         end,
     }
@@ -29,7 +41,19 @@ function rob_parkmeter()
     Wait(500)
 
     if cops < Projekti.police_count then
-        ESX.ShowNotification(Projekti.locales["nopolice"])
+        lib.notify({
+            title = Projekti.locales["nopolice"],
+            position = 'center-right',
+            style = {
+                backgroundColor = Projekti.notify["background_color"],
+                color = Projekti.notify["text_colour"],
+                ['.description'] = {
+                    color = Projekti.notify["text_colour"]
+                }
+            },
+            icon = Projekti.notify["icon"],
+            iconColor = '#C53030'
+        })
         return
     else
         TriggerServerEvent("projekti:log")
@@ -174,7 +198,7 @@ function rob_parkmeter()
 
         exports.ox_target:addModel(model, {
             {
-                label = "Ryöstä Parkkimittari",
+                label = "Rob Parking Meter",
                 icon = 'fa-solid fa-tools',
 
                 onSelect = function ()
