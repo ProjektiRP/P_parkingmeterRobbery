@@ -23,23 +23,13 @@ Projekti.notify = {
 
 
 Projekti.locales = {
-    ["rob"] = "Ryöstä tämä parkkimittari",
-
-    ["need"] = "Tarvitset jotain kättä pidempää",
-
-    ["nopolice"] = "Ei tarpeeksi poliiseja!",
-
-    ["robbery"] = "Ryöstö",
-
-    ["Robbery title"] = "Parkkimittari ryöstö",
-    ["Robbery desc"] = "Joku ryöstää parkkimittaria",
-
-    ["progressbar"] = "Ryöstää...",
-
-    ["fail"] = "Nyt kusahti!",
-    ["robbery_success"] = "Onnistuit hyvin ryöstetty!"
-    
+    ["rob"] = "Rob Parking Meter",
+    ["need"] = "You need something longer than your arm",
+    ["nopolice"] = "Not enough police around!",
+    ["robbery"] = "Robbery",
+    ["Robbery title"] = "Parking Meter Robbery",
+    ["Robbery desc"] = "Someone is robbing a parking meter",
+    ["progressbar"] = "Robbing...",
+    ["fail"] = "Failed!",
+    ["robbery_success"] = "You successfully robbed it!"
 }
-
-
-
