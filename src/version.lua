@@ -11,6 +11,7 @@ PerformHttpRequest(url, function(err, text, headers)
     print("[Performing Update Check: " .. resourceName .. "]")
 
     if text then
+        text = text:gsub("^%s*(.-)%s*$", "%1") -- Trim whitespace from the beginning and end of the string
         if version == text then
             print("[OK!]")
         else
