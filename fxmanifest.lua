@@ -3,6 +3,7 @@ game 'gta5'
 lua54 'yes'
 author 'Projekti'
 description 'PROJEKTI - PARKING METER ROBBERY'
+version '1.0.1'
 
 client_scripts {
     'src/c_*.lua',
