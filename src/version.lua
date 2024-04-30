@@ -1,5 +1,5 @@
 local resourceName = GetCurrentResourceName()
-local url = "https://raw.githubusercontent.com/ProjektiRP/P_parkingmeterRobbery/main/version.txt"
+local url = "https://github.com/ProjektiRP/P_parkingmeterRobbery/blob/main/src/version.txt"
 local version = GetResourceMetadata(resourceName, "version")
 
 PerformHttpRequest(url, function(err, text, headers)
