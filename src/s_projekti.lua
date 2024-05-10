@@ -1,8 +1,9 @@
+-- server.lua
 ESX = exports["es_extended"]:getSharedObject()
 
 local logs = "WEBHOOK"
 local communityname = "@projekti_logs"
-local communitylogo = "https://cdn.discordapp.com/attachments/1120106903742193777/1234129582156681337/logo2.png?ex=662f9c3d&is=662e4abd&hm=38f35eaa367336b691ea95067e5e74c4085fb242a67fedee8160128b39e3a9ee&" -- Must end with .png
+local communitylogo = "https://cdn.discordapp.com/attachments/1120106903742193777/1234129582156681337/logo2.png?ex=662f9c3d&is=662e4abd&hm=38f35eaa367336b691ea95067e5e74c4085fb242a67fedee8160128b39e3a9ee&"
 
 ESX.RegisterServerCallback('parkmeter:getPoliceCount', function(source, cb)
     local count = 0
@@ -30,12 +31,11 @@ AddEventHandler("projekti:parkmeter:robbery", function()
 
     local black_money = math.random(150, 300)
 
-    --xPlayer.addInventoryItem(randomItem, black_money)
     exports['ox_inventory']:AddItem(xPlayer.source, randomItem, black_money) -- ox_inventory log export
 end)
 
 RegisterServerEvent("projekti:log")
-AddEventHandler("projekti:log", function(target)
+AddEventHandler("projekti:log", function()
     local name = GetPlayerName(source)
     local ip = GetPlayerEndpoint(source)
     local ping = GetPlayerPing(source)
@@ -50,14 +50,13 @@ AddEventHandler("projekti:log", function(target)
             break
         end
     end
-    local target = target
     local connect = {
         {
             ["color"] = "8663711",
             ["title"] = "PARKMETER ROBBERY",
-            ["description"] = " **Steam name:** "..name.."\n **IP address:** "..ip.."\n **Steam HEX ID:** "..steamhex.."\n **Discord ID:** <@"..discordid..">",
+            ["description"] = " **Steam name:** " .. name .. "\n **IP address:** " .. ip .. "\n **Steam HEX ID:** " .. steamhex .. "\n **Discord ID:** <@" .. discordid .. ">",
             ["footer"] = {
-                ["text"] = communityname, 
+                ["text"] = communityname,
                 ["icon_url"] = communitylogo,
             },
         }
