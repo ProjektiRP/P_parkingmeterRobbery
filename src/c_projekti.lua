@@ -1,3 +1,4 @@
+-- client.lua
 ESX = exports["es_extended"]:getSharedObject()
 
 local playerIdx = GetPlayerFromServerId(source)
@@ -10,7 +11,7 @@ exports.ox_target:addModel(model, {
     {
         label = Projekti.locales["rob"],
         icon = 'fa-solid fa-tools',
-        onSelect = function ()
+        onSelect = function()
             if GetSelectedPedWeapon(ped) == GetHashKey("weapon_crowbar") then
                 rob_parkmeter()
             else
@@ -19,9 +20,9 @@ exports.ox_target:addModel(model, {
                     position = 'center-right',
                     style = {
                         backgroundColor = Projekti.notify["background_color"],
-                        color = Projekti.notify["text_colour"],
+                        color = Projekti.notify["text_color"],
                         ['.description'] = {
-                            color = Projekti.notify["text_colour"]
+                            color = Projekti.notify["text_color"]
                         }
                     },
                     icon = Projekti.notify["icon"],
@@ -33,7 +34,7 @@ exports.ox_target:addModel(model, {
 })
 
 function rob_parkmeter()
-    cops = 0
+    local cops = 0
     ESX.TriggerServerCallback('parkmeter:getPoliceCount', function(_cops)
         cops = _cops
     end)
@@ -46,9 +47,9 @@ function rob_parkmeter()
             position = 'center-right',
             style = {
                 backgroundColor = Projekti.notify["background_color"],
-                color = Projekti.notify["text_colour"],
+                color = Projekti.notify["text_color"],
                 ['.description'] = {
-                    color = Projekti.notify["text_colour"]
+                    color = Projekti.notify["text_color"]
                 }
             },
             icon = Projekti.notify["icon"],
@@ -71,7 +72,7 @@ function rob_parkmeter()
                 },
                 anim = {
                     dict = 'mini@repair',
-                    clip = 'fixing_a_ped' 
+                    clip = 'fixing_a_ped'
                 },
             })
             if success2 then
@@ -81,9 +82,9 @@ function rob_parkmeter()
                     position = 'center-right',
                     style = {
                         backgroundColor = Projekti.notify["background_color"],
-                        color = Projekti.notify["text_colour"],
+                        color = Projekti.notify["text_color"],
                         ['.description'] = {
-                            color = Projekti.notify["text_colour"]
+                            color = Projekti.notify["text_color"]
                         }
                     },
                     icon = 'check-double',
@@ -95,9 +96,9 @@ function rob_parkmeter()
                     position = 'center-right',
                     style = {
                         backgroundColor = Projekti.notify["background_color"],
-                        color = Projekti.notify["text_colour"],
+                        color = Projekti.notify["text_color"],
                         ['.description'] = {
-                            color = Projekti.notify["text_colour"]
+                            color = Projekti.notify["text_color"]
                         }
                     },
                     icon = Projekti.notify["icon"],
@@ -110,9 +111,9 @@ function rob_parkmeter()
                 position = 'center-right',
                 style = {
                     backgroundColor = Projekti.notify["background_color"],
-                    color = Projekti.notify["text_colour"],
+                    color = Projekti.notify["text_color"],
                     ['.description'] = {
-                        color = Projekti.notify["text_colour"]
+                        color = Projekti.notify["text_color"]
                     }
                 },
                 icon = Projekti.notify["icon"],
@@ -126,8 +127,8 @@ function rob_parkmeter()
         if Projekti.dispatch == "qs-dispatch" then
             local playerData = exports['qs-dispatch']:GetPlayerInfo()
 
-            if (not playerData) then
-                ErrorPrint("Error getting player data")
+            if not playerData then
+                print("Error getting player data")
                 return
             end
 
@@ -138,38 +139,38 @@ function rob_parkmeter()
                     callCode = { code = 'Parkingmeter', snippet = Projekti.locales["robbery"] },
                     message = Projekti.locales["Robbery desc"],
                     flashes = false,
-                    image = "https://cdn.discordapp.com/attachments/1207717557637746759/1209514644750729276/image.png?ex=65e7334b&is=65d4be4b&hm=136f478ae6ec26be4e912e91bd70e50a781805cd1db27daeac80f0b3ba09f9ce&", -- Url for image to attach to the call 
+                    image = "https://cdn.discordapp.com/attachments/1207717557637746759/1209514644750729276/image.png?ex=65e7334b&is=65d4be4b&hm=136f478ae6ec26be4e912e91bd70e50a781805cd1db27daeac80f0b3ba09f9ce&",
                     blip = {
                         sprite = 500,
                         scale = 1.9,
                         colour = 1,
                         flashes = true,
                         text = Projekti.locales["Robbery desc"],
-                        time = (20 * 100000),     --20 secs
+                        time = (20 * 100000), -- 20 secs
                     }
                 })
             end)
         elseif Projekti.dispatch == "cd-dispatch" then
             local data = exports['cd_dispatch']:GetPlayerInfo()
             local dispatch = TriggerServerEvent('cd_dispatch:AddNotification', {
-                job_table = {'police', }, 
+                job_table = {'police'},
                 coords = data.coords,
                 title = Projekti.locales["Robbery title"],
-                message = Projekti.locales["Robbery desc"], 
+                message = Projekti.locales["Robbery desc"],
                 flash = 0,
                 unique_id = data.unique_id,
                 sound = 1,
                 blip = {
-                    sprite = 431, 
-                    scale = 1.2, 
+                    sprite = 431,
+                    scale = 1.2,
                     colour = 3,
-                    flashes = false, 
+                    flashes = false,
                     text = Projekti.locales["Robbery desc"],
                     time = 5,
                     radius = 0,
                 }
             })
-        elseif Projekti.dispatch == "core.dispatch" then
+        elseif Projekti.dispatch == "core-dispatch" then
             TriggerServerEvent(
                 "core_dispatch:addMessage",
                 Projekti.locales["Robbery title"],
@@ -180,7 +181,7 @@ function rob_parkmeter()
                 5
             )
         elseif Projekti.dispatch == "op-dispatch" then
-            local job = "police" -- Jobs that will recive the alert
+            local job = "police" -- Jobs that will receive the alert
             local text = Projekti.locales["Robbery desc"] -- Main text alert
             local coords = GetEntityCoords(PlayerPedId()) -- Alert coords
             local id = GetPlayerServerId(PlayerId()) -- Player that triggered the alert
@@ -198,10 +199,9 @@ function rob_parkmeter()
 
         exports.ox_target:addModel(model, {
             {
-                label = "Rob Parking Meter",
+                label = Projekti.locales["rob"],
                 icon = 'fa-solid fa-tools',
-
-                onSelect = function ()
+                onSelect = function()
                     if GetSelectedPedWeapon(ped) == GetHashKey("weapon_crowbar") then
                         rob_parkmeter()
                     end
