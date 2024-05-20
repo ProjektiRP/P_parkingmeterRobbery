@@ -18,14 +18,7 @@ exports.ox_target:addModel(model, {
                 lib.notify({
                     title = Projekti.locales["need"],
                     position = 'center-right',
-                    style = {
-                        backgroundColor = Projekti.notify["background_color"],
-                        color = Projekti.notify["text_color"],
-                        ['.description'] = {
-                            color = Projekti.notify["text_color"]
-                        }
-                    },
-                    icon = Projekti.notify["icon"],
+                    icon = 'fa-solid fa-tools',
                     iconColor = '#C53030'
                 })
             end
@@ -45,14 +38,7 @@ function rob_parkmeter()
         lib.notify({
             title = Projekti.locales["nopolice"],
             position = 'center-right',
-            style = {
-                backgroundColor = Projekti.notify["background_color"],
-                color = Projekti.notify["text_color"],
-                ['.description'] = {
-                    color = Projekti.notify["text_color"]
-                }
-            },
-            icon = Projekti.notify["icon"],
+            icon = 'fa-solid fa-tools',
             iconColor = '#C53030'
         })
         return
@@ -80,13 +66,6 @@ function rob_parkmeter()
                 lib.notify({
                     title = Projekti.locales["robbery_success"],
                     position = 'center-right',
-                    style = {
-                        backgroundColor = Projekti.notify["background_color"],
-                        color = Projekti.notify["text_color"],
-                        ['.description'] = {
-                            color = Projekti.notify["text_color"]
-                        }
-                    },
                     icon = 'check-double',
                     iconColor = '#34eb34'
                 })
@@ -94,14 +73,7 @@ function rob_parkmeter()
                 lib.notify({
                     title = Projekti.locales["fail"],
                     position = 'center-right',
-                    style = {
-                        backgroundColor = Projekti.notify["background_color"],
-                        color = Projekti.notify["text_color"],
-                        ['.description'] = {
-                            color = Projekti.notify["text_color"]
-                        }
-                    },
-                    icon = Projekti.notify["icon"],
+                    icon = 'fa-solid fa-tools',
                     iconColor = '#C53030'
                 })
             end
@@ -109,14 +81,7 @@ function rob_parkmeter()
             lib.notify({
                 title = Projekti.locales["fail"],
                 position = 'center-right',
-                style = {
-                    backgroundColor = Projekti.notify["background_color"],
-                    color = Projekti.notify["text_color"],
-                    ['.description'] = {
-                        color = Projekti.notify["text_color"]
-                    }
-                },
-                icon = Projekti.notify["icon"],
+                icon = 'fa-solid fa-tools',
                 iconColor = '#C53030'
             })
         end
