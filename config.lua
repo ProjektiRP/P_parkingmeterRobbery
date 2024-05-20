@@ -13,12 +13,6 @@ Projekti.progress_time = 25 -- in seconds, default = 25
 
 Projekti.police_count = 1
 
-Projekti.notify = {
-    ["text_color"] = "#ffffff",
-    ["background_color"] = "#000000",
-    ["icon"] = "fa-solid fa-tools",
-}
-
 Projekti.locales = {
     ["rob"] = "Rob Parking Meter",
     ["need"] = "You need something longer than your arm",
